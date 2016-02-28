@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student: {{ student.nom }}</title>
+        <meta charset='UTF-8' />
+    </head>
+    <body>
+        <h3>{{ student.nom }} {{ student.prenom }}</h3>
+        <ul>
+            <li>Email: {{ student.email }}</li>
+            {% if student.telephonne %}
+            <li>Telephone: {{ student.telephonne }}</li>
+            {% endif %}
+        </ul>
+    </body>
+</html>

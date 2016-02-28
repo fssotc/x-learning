@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student List</title>
+        <meta charset='UTF-8' />
+        <style>
+            table, td, th {
+                            border: 1px solid black;
+            }
+            th {
+                color: red;
+            }
+            h3 {
+                width: 200px;
+                margin: 20px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Student List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in student_list %}
+                <tr>
+                    <td><a href="{% url 'student_detail' s.id %}">{{ s.nom }}</a></td>
+                    <td>{{ s.prenom }}</td>
+                    <td>{{ s.email }}</td>
+                    <td>{{ s.telephonne }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

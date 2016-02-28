@@ -1,0 +1,7 @@
+*.sqlite3
+*.pyc
+__pycache__/
+*.pot
+env/
+*.egg-info/
+*.log
