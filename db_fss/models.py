@@ -30,3 +30,24 @@ class Inscription(models.Model):
 
     def __str__(self):
         return self.num
+
+class Semestre(models.Model):
+	num = models.PositiveIntegerField()
+	module = models.ForeignKey(Module, on_delete=models.CASCADE)
+	
+class Module(models.Model):
+	nom = models.CharField(max_length=200)
+	coff = models.FloatField()
+	matiere = models.ForeignKey(Matiere, on_delete=models.CASCADE)
+	m_type = models.CharField(max_length=200)
+
+class Matiere(models.Model):
+	nom = models.CharField(max_length=200)
+	coff = models.FloatField()
+	cours = models.BooleanField()
+	td = models.BooleanField()
+	tp = models.BooleanField()
+	nb_heure = models.PositiveIntegerField()
+
+		
+	
