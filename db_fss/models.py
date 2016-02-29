@@ -75,4 +75,8 @@ class Specialite(models.Model):
 class emploi(models.Model):
 	specialite = models.ForeignKey(specialite)
 	
-	
+class outil(models.Model):
+	nom = models.CharField(max_length=20)
+	description = models.CharField(max_length=2000)
+	version = models.FloatField()
+		
