@@ -61,10 +61,18 @@ class Club(models.Model):
 	email = models.CharField(max_length=30)
 
 class Departement(models.Model):
-	nom = models.Charfield(max_length=30)
-	chef_dep = models.Charfield(max_length=30)
+	nom = models.CharField(max_length=30)
+	chef_dep = models.CharField(max_length=30)
 	nb_student = models.PosiviteIntegerField()
 
+class Salle(models.Model):
+	nom = models.CharField(max_length=20)
+	capaciter = models.PositiveIntegerField() #capaciter de chaque salle
+	
+class Specialite(models.Model):
+	nom = models.CharField(max_length=5)
 
+class emploi(models.Model):
+	specialite = models.ForeignKey(specialite)
 	
 	
