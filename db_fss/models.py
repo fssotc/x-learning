@@ -72,11 +72,14 @@ class Salle(models.Model):
 class Specialite(models.Model):
 	nom = models.CharField(max_length=5)
 
-class emploi(models.Model):
+class Emploi(models.Model):
 	specialite = models.ForeignKey(specialite)
 	
-class outil(models.Model):
+class Outil(models.Model):
 	nom = models.CharField(max_length=20)
 	description = models.CharField(max_length=2000)
 	version = models.FloatField()
+# db for the most useful urls
+class Lien(models.Model):
+	l_lien = models.CharField(max_length=20)
 		
