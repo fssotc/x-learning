@@ -49,5 +49,16 @@ class Matiere(models.Model):
 	tp = models.BooleanField()
 	nb_heure = models.PositiveIntegerField()
 
-		
+class News(models.Model):
+	titre = models.CharField(max_length=20)
+	n_url = models.CharField(max_length=100)
+	n_date = models.DateField(auto_now=False,auto_now_add=True)
+	author = models.CharField(max_length=200)
+
+class Club(models.Model):
+	nom = models.CharField(max_length=20)
+	description = models.CharField(max_length=2000)
+	email = models.CharField(max_length=30)
+
+	
 	
