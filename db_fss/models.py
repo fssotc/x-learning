@@ -34,7 +34,7 @@ class Inscription(models.Model):
 class Semestre(models.Model):
 	num = models.PositiveIntegerField()
 	module = models.ForeignKey(Module, on_delete=models.CASCADE)
-	
+
 class Module(models.Model):
 	nom = models.CharField(max_length=200)
 	coff = models.FloatField()
