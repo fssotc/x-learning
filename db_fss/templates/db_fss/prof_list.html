@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Student List</title>
+        <title>prof_List</title>
         <meta charset='UTF-8' />
         <style>
             table, td, th {
@@ -17,23 +17,23 @@
         </style>
     </head>
     <body>
-        <h3>Student List</h3>
+        <h3>prof_List</h3>
         <table>
             <thead>
                 <tr>
                     <th>Nom</th>
                     <th>Prenom</th>
-                    <th>Email</th>
+                    <th>adresse</th>
                     <th>Téléphone</th>
                 </tr>
             </thead>
             <tbody>
-                {% for s in student_list %}
+                {% for s in prof_List %}
                 <tr>
-                    <td><a href="{% url 'student_detail' s.cin %}">{{ s.nom }}</a></td>
+                    <td><a href="{% url 'prof_list' s.cin %}">{{ s.nom }}</a></td>
                     <td>{{ s.prenom }}</td>
-                    <td>{{ s.email }}</td>
-                    <td>{{ s.telephonne }}</td>
+                    <td>{{ s.adresse }}</td>
+                    <td>{{ s.telephone }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

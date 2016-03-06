@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Student, Prof, Inscription,Matiere,News
+from .models import Student, Prof
 
 
 class StudentList(ListView):
@@ -9,3 +9,5 @@ class StudentList(ListView):
 
 class StudentDetail(DetailView):
     model = Student
+class ProfList(ListView):
+    model=Prof
