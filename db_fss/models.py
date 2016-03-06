@@ -4,7 +4,7 @@ from django.db import models
 
 from re import search,compile
 
-from djano.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -20,31 +20,15 @@ class Student(models.Model):
         return "%s %s" % (self.nom, self.prenom)
     
     def clean(self):
-
-        mcin=r'^(([a-zA-Z][a-zA-Z0-9])|([0-9]){2})[0-9]{6}$'
+    	mcin=r'^(([a-zA-Z][a-zA-Z0-9])|[0-9]{2})[0-9]{6}$'
         mcinc=compile(mcin)
 	
         if mcinc.search(self.cin) is None:
             raise ValidationError("identificateur cin non valide!")
-
-	
-	mtel=r'^[0-9]{8}$'
+        mtel=r'^[0-9]{8}$'
         mtelc=compile(mtel)
-
-       if mtelc.search(self.telephonne) is None:
-           raise ValidationError("numéro de téléphone non valide!")
-
-
-       
-     
-
-
-
-            
-        
-
-        
-	
+        if self.telephonne and mtelc.search(self.telephonne) is None:
+        	raise ValidationError("numero de telephone non valide")
 
 class Prof(models.Model):
     cin = models.CharField(primary_key=True,max_length=8)
@@ -55,12 +39,17 @@ class Prof(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.nom, self.prenom)
+    def clean(self):
+    	mcin=r'^(([a-zA-Z][a-zA-Z0-9])|[0-9]{2})[0-9]{6}$'
+        mcinc=compile(mcin)
+	
+        if mcinc.search(self.cin) is None:
+            raise ValidationError("identificateur cin non valide!")
+        mtel=r'^[0-9]{8}$'
+        mtelc=compile(mtel)
+        if self.telephone and mtelc.search(self.telephone) is None:
+        	raise ValidationError("numero de telephone non valide")    
     
-    	
-
-
-
-
 class Inscription(models.Model):
     num = models.PositiveIntegerField(primary_key=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
