@@ -63,11 +63,9 @@ class News(models.Model):
 	contenu = models.TextField()
 	n_date = models.DateField(auto_now=False,auto_now_add=True)
 	author=models.ForeignKey(Prof,on_delete=models.CASCADE)
+	
+  
 
-class Club(models.Model):
-	nom = models.CharField(max_length=20)
-	description = models.CharField(max_length=2000)
-	email = models.CharField(max_length=30)
 
 class Departement(models.Model):
 	nom = models.CharField(max_length=30)
