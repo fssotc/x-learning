@@ -1,0 +1,11 @@
+language: python
+python:
+- '2.7'
+- '3.4'
+- '3.5'
+- nightly
+intall:
+- pip install -q -r requirements.txt
+- pip install -q -e .
+script:
+- python manage.py test
