@@ -30,17 +30,6 @@ class Inscription(models.Model):
 
     def __str__(self):
         return self.num
-
-class Semestre(models.Model):
-	num = models.PositiveIntegerField()
-	module = models.ForeignKey(Module, on_delete=models.CASCADE)
-	
-class Module(models.Model):
-	nom = models.CharField(max_length=200)
-	coff = models.FloatField()
-	matiere = models.ForeignKey(Matiere, on_delete=models.CASCADE)
-	m_type = models.CharField(max_length=200)
-
 class Matiere(models.Model):
 	nom = models.CharField(max_length=200)
 	coff = models.FloatField()
@@ -48,6 +37,20 @@ class Matiere(models.Model):
 	td = models.BooleanField()
 	tp = models.BooleanField()
 	nb_heure = models.PositiveIntegerField()
+
+class Module(models.Model):
+	nom = models.CharField(max_length=200)
+	coff = models.FloatField()
+	matiere = models.ForeignKey(Matiere, on_delete=models.CASCADE)
+	m_type = models.CharField(max_length=200)
+
+class Semestre(models.Model):
+	num = models.PositiveIntegerField()
+	Module = models.ForeignKey(Module, on_delete=models.CASCADE)
+	
+
+
+
 
 class News(models.Model):
 	titre = models.CharField(max_length=20)
