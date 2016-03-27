@@ -47,7 +47,7 @@ class Module(models.Model):
 class Semestre(models.Model):
 	num = models.PositiveIntegerField()
 	Module = models.ForeignKey(Module, on_delete=models.CASCADE)
-	
+
 
 
 
@@ -66,18 +66,18 @@ class Club(models.Model):
 class Departement(models.Model):
 	nom = models.CharField(max_length=30)
 	chef_dep = models.CharField(max_length=30)
-	nb_student = models.PosiviteIntegerField()
+	nb_student = models.PositiveIntegerField()
 
 class Salle(models.Model):
 	nom = models.CharField(max_length=20)
 	capaciter = models.PositiveIntegerField() #capaciter de chaque salle
-	
+
 class Specialite(models.Model):
 	nom = models.CharField(max_length=5)
 
 class Emploi(models.Model):
-	specialite = models.ForeignKey(specialite)
-	
+	specialite = models.ForeignKey(Specialite)
+
 class Outil(models.Model):
 	nom = models.CharField(max_length=20)
 	description = models.CharField(max_length=2000)
@@ -85,4 +85,3 @@ class Outil(models.Model):
 # db for the most useful urls
 class Lien(models.Model):
 	l_lien = models.CharField(max_length=20)
-		
