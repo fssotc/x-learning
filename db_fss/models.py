@@ -29,7 +29,8 @@ class Inscription(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.num
+        return "%d" % self.num
+
 class Matiere(models.Model):
 	nom = models.CharField(max_length=200)
 	coff = models.FloatField()
