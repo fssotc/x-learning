@@ -9,3 +9,6 @@ class StudentList(ListView):
 
 class StudentDetail(DetailView):
     model = Student
+
+class ProfList(ListView):
+    model = Prof
