@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from .models import Student, Prof, Inscription
 
 def home(request):
-    return render(request, 'db_fss/homepage/home.html')
+    return render(request, 'db_fss/home.html')
 
 class StudentList(ListView):
     model = Student
