@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Matiere</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <h3>Matire List</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Cofficient</th>
+          <th>Cours</th>
+          <th>Td</th>
+          <th>tp</th>
+          <th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for s in matiere_list %}
+        <tr>
+            <td>{{ s.nom }}</td>
+            <td>{{ s.coff }}</td>
+            <td>{{ s.cours }}</td>
+            <td>{{ s.td }}</td>
+            <td>{{ s.tp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

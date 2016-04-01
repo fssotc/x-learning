@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Student, Prof, Inscription
+from .models import Student, Prof, Inscription, Matiere
 
 def home(request):
     return render(request, 'db_fss/home.html')
@@ -14,3 +14,6 @@ class StudentDetail(DetailView):
 
 class ProfList(ListView):
     model = Prof
+
+class MatiereList(ListView):
+    module = Matiere
