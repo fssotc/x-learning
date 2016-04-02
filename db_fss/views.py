@@ -17,3 +17,6 @@ class ProfList(ListView):
 
 class MatiereList(ListView):
     module = Matiere
+    def get_queryset(self):
+        """return Matiere"""
+        return Matiere.objects.order_by('-nom')[:5]
