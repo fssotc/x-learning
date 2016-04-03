@@ -1,8 +1,11 @@
 from django.conf.urls import url
-from .views import StudentList, StudentDetail,ProfList
+from .views import StudentList, StudentDetail, ProfList
+from .views import StudentList, StudentDetail, ProfList, home, MatiereList
 
 urlpatterns = [
-    url(r'^student/$', StudentList.as_view(), name='student_list'),
+    url(r'^$', home, name='home'),
+    url(r'^student/$', StudentList.as_view(), name='StudentList'),
     url(r'^student/(?P<pk>[0-9]+)$', StudentDetail.as_view(), name='student_detail'),
     url(r'^prof/$', ProfList.as_view(), name='prof_list'),
+    url(r'^matiere/$', MatiereList.as_view(), name='matiere_list'),
 ]

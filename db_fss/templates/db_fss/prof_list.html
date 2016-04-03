@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>prof_List</title>
-        <meta charset='UTF-8' />
-        <style>
-            table, td, th {
-                            border: 1px solid black;
-            }
-            th {
-                color: red;
-            }
-            h3 {
-                width: 200px;
-                margin: 20px auto;
-            }
-        </style>
-    </head>
-    <body>
-        <h3>prof_List</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>adresse</th>
-                    <th>Téléphone</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for s in prof_List %}
-                <tr>
-                    <td><a href="{% url 'prof_list' s.cin %}">{{ s.nom }}</a></td>
-                    <td>{{ s.prenom }}</td>
-                    <td>{{ s.adresse }}</td>
-                    <td>{{ s.telephone }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </body>
+
+<head>
+    <title>prof_List</title>
+    <meta charset='UTF-8' />
+    <style>
+        body {
+            background-color: grey;
+        }
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+        th {
+            color: red;
+        }
+        h3 {
+            width: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Prof List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in prof_List %}
+            <tr>
+                <td><a href="{% url 'prof_list' s.cin %}">{{ s.nom }}</a>
+                </td>
+                <td>{{ s.prenom }}</td>
+                <td>{{ s.adresse }}</td>
+                <td>{{ s.telephone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
 </html>
