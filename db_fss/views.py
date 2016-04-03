@@ -3,17 +3,26 @@ from django.views.generic import ListView, DetailView
 
 from .models import Student, Prof, Inscription, Matiere
 
+
 def home(request):
     return render(request, 'db_fss/home.html')
+
 
 class StudentList(ListView):
     model = Student
 
+
 class StudentDetail(DetailView):
     model = Student
 
+
 class ProfList(ListView):
     model = Prof
+
+
+class ProfDetail(DetailView):
+    model = Prof
+
 
 class MatiereList(ListView):
     module = Matiere

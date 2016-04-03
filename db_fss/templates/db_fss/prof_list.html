@@ -35,9 +35,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for s in prof_List %}
+            {% for s in prof_list %}
             <tr>
-                <td><a href="{% url 'prof_list' s.cin %}">{{ s.nom }}</a>
+                <td><a href="{% url 'prof_detail' s.cin %}">{{ s.nom }}</a>
                 </td>
                 <td>{{ s.prenom }}</td>
                 <td>{{ s.adresse }}</td>

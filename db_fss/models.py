@@ -32,6 +32,7 @@ class Student(models.Model):
         if self.telephonne and mtelc.search(self.telephonne) is None:
             raise ValidationError("numero de telephone non valide")
 
+
 class Prof(models.Model):
     cin = models.CharField(primary_key=True, max_length=8)
     nom = models.CharField(max_length=30)
@@ -53,12 +54,14 @@ class Prof(models.Model):
         if self.telephone and mtelc.search(self.telephone) is None:
             raise ValidationError("numero de telephone non valide")
 
+
 class Inscription(models.Model):
     num = models.PositiveIntegerField(primary_key=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.num)
+
 
 class Matiere(models.Model):
     nom = models.CharField(max_length=200)
@@ -71,11 +74,13 @@ class Matiere(models.Model):
     def __str__(self):
         return self.nom
 
+
 class Module(models.Model):
     nom = models.CharField(max_length=200)
     coff = models.FloatField()
     # matiere = models.ForeignKey(Matiere, on_delete=models.CASCADE)
     m_type = models.CharField(max_length=200)
+
 
 class Semestre(models.Model):
     num = models.PositiveIntegerField()
@@ -92,6 +97,7 @@ class News(models.Model):
 class Departement(models.Model):
     nom = models.CharField(max_length=30)
     chefdep = models.ForeignKey(Prof, on_delete=models.CASCADE)
+
 
 class Specialite(models.Model):
     nom = models.CharField(max_length=30)
