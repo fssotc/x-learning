@@ -9,3 +9,4 @@ intall:
 - pip install -q -e .
 script:
 - python manage.py test
+- pep8
