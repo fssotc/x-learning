@@ -12,7 +12,7 @@ class Matiere(models.Model):
     nb_heure = models.PositiveIntegerField()
 
     def __str__(self):
-        return "%s" % self.nom
+        return "%s %s" % (self.nom,self.coff)
 class Module(models.Model):
 	nom = models.CharField(max_length=200)
 	coff = models.FloatField()
@@ -65,11 +65,14 @@ class Student(models.Model):
     prenom = models.CharField(max_length=30)
     telephonne = models.CharField(max_length=12, blank=True)
     email = models.EmailField()
-    #matiere = models.ForeignKey(Matiere, on_delete=models.CASCADE)
+    matiere = models.ManyToManyField(Matiere)
     #departement =models.ForeignKey(Departement, on_delete=models.CASCADE)
 
     def __str__(self):
         return "%s %s" % (self.nom, self.prenom)
+
+    def Meta():
+        ordering('nom',)
 
 class Prof(models.Model):
     cin = models.CharField(max_length=8)

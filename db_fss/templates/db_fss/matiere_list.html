@@ -1,7 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Matiere</title>
   <meta charset="utf-8"/>
+  <style>
+  body {
+      background: #1D1F21;
+  }
+      table, td, th {
+         border: 1px solid black;
+
+      }
+      th {
+          color: red;
+      }
+      h3 {
+          width: 200px;
+          margin: 20px auto;
+      }
+  </style>
 </head>
 <body>
   <h3>Matire List</h3>
@@ -13,19 +30,19 @@
           <th>Cours</th>
           <th>Td</th>
           <th>tp</th>
-          <th>
-      </tr>
+          <th>Nombre d'heure</th>
+        </tr>
     </thead>
     <tbody>
         {% for s in matiere_list %}
         <tr>
             <td>{{ s.nom }}</td>
             <td>{{ s.coff }}</td>
-            <td>{{ s.cours }}</td>
             <td>{{ s.td }}</td>
             <td>{{ s.tp }}</td>
+            <td>{{ s.nb_heure }}</td>
         </tr>
-        {% endfor %}
+      {% endfor %}
     </tbody>
 </table>
 </body>

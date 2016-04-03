@@ -25,8 +25,11 @@
                     <th>Prenom</th>
                     <th>Email</th>
                     <th>Téléphone</th>
-                </tr>
+                    <th>mat</th>
+                  </tr>
+
             </thead>
+
             <tbody>
                 {% for s in student_list %}
                 <tr>
@@ -34,10 +37,11 @@
                     <td>{{ s.prenom }}</td>
                     <td>{{ s.email }}</td>
                     <td>{{ s.telephonne }}</td>
-                    {% for k in matiere_list %}
-                       <td>{{k.nom}}</td>
-                       <td>{{k.coff}}</td>
-                    {% endfor %}
+
+                    <td>{{ s.matiere.nom }}</td>
+
+                <tbody>
+
                 </tr>
                 {% endfor %}
             </tbody>
